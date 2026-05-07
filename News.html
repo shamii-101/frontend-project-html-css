@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest space exploration news and cosmic discoveries. Stay updated with missions, discoveries, and the future of space travel.">
+    <meta name="keywords" content="space, exploration, NASA, astronomy, missions, discoveries, cosmos">
+    <meta name="author" content="Cosmic News Hub">
+    <meta property="og:title" content="Space News - Cosmic Discoveries & Exploration">
+    <meta property="og:description" content="Latest space exploration news and cosmic discoveries">
+    <meta property="og:type" content="website">
+    <title>Space News - Cosmic Discoveries & Exploration</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a2540 0%, #1a4d7a 25%, #2d5a8c 50%, #6b3fa0 75%, #a5246b 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(100, 200, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(200, 50, 150, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(150, 100, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 100, 200, 0.35) 0%, transparent 50%);
+            background-size: 700px 700px, 900px 900px, 800px 800px, 750px 750px;
+            opacity: 1;
+            pointer-events: none;
+            animation: glow 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.9;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        :root {
+            --primary-color: #64c8ff;
+            --secondary-color: #a533ff;
+            --dark-bg: #0f172a;
+            --light-bg: transparent;
+            --text-dark: #e0f7ff;
+            --text-light: #c5e3ff;
+            --border-color: rgba(100, 200, 255, 0.3);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Navigation */
+        header {
+            background: linear-gradient(90deg, rgba(10, 37, 64, 0.95) 0%, rgba(45, 90, 140, 0.95) 100%);
+            box-shadow: 0 4px 30px rgba(100, 200, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c5e3ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(100, 200, 255, 0.2);
+            border-bottom-color: #64c8ff;
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 144, 255, 0.3) 0%, rgba(165, 51, 255, 0.3) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(100, 200, 255, 0.3);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #e0f7ff;
+            text-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #c5e3ff;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid rgba(100, 200, 255, 0.3);
+            background-color: rgba(20, 45, 80, 0.8);
+            color: #c5e3ff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #2d90ff 0%, #a533ff 100%);
+            color: white;
+            border-color: #64c8ff;
+            box-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* News Card */
+        .news-card {
+            background: linear-gradient(135deg, rgba(20, 45, 80, 0.9) 0%, rgba(40, 60, 100, 0.9) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(100, 200, 255, 0.2), 0 0 30px rgba(100, 200, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(100, 200, 255, 0.4), 0 0 40px rgba(165, 51, 255, 0.2);
+            border-color: rgba(100, 200, 255, 0.5);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #2d90ff 0%, #a533ff 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+            box-shadow: 0 0 15px rgba(100, 200, 255, 0.3);
+        }
+
+        .news-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #e0f7ff;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.2);
+        }
+
+        .news-card-date {
+            color: #c5e3ff;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-card-excerpt {
+            color: #c5e3ff;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #64c8ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: #2d90ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, rgba(20, 45, 80, 0.9) 0%, rgba(40, 60, 100, 0.9) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(100, 200, 255, 0.2), 0 0 30px rgba(100, 200, 255, 0.1);
+            margin-top: 2rem;
+            border: 2px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            color: #e0f7ff;
+            border-bottom: 2px solid #64c8ff;
+            padding-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.2);
+        }
+
+        .sidebar-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-item a {
+            color: #c5e3ff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .sidebar-item a:hover {
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, rgba(10, 37, 64, 0.95) 0%, rgba(45, 90, 140, 0.95) 100%);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 2px solid rgba(100, 200, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #64c8ff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #c5e3ff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(100, 200, 255, 0.2);
+            color: #c5e3ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                justify-content: flex-start;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(90deg, rgba(10, 37, 64, 0.95) 0%, rgba(45, 90, 140, 0.95) 100%);
+            border-top: 2px solid rgba(100, 200, 255, 0.3);
+            padding: 50px 20px 20px;
+            margin-top: 80px;
+            color: #c5e3ff;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .footer-section h4 {
+            color: #64c8ff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #c5e3ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(196, 227, 255, 0.7);
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 20px 15px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="home.html" class="logo" style="color: #e0f7ff; text-shadow: 0 4px 20px rgba(100, 200, 255, 0.5), 0 0 30px rgba(200, 100, 255, 0.3);"><span style="color: #64c8ff;">PORT</span><span style="color: #e0f7ff;">FOLIO</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="News.html" class="active">News</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 style="text-align: center; font-size: 48px; margin: 40px 0 30px; font-weight: 700; letter-spacing: 2px; text-shadow: 0 4px 20px rgba(100, 200, 255, 0.5), 0 0 30px rgba(200, 100, 255, 0.3); color: #e0f7ff;"><span style="color: #64c8ff;">PORT</span><span style="color: #e0f7ff;">FOLIO</span></h1>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; color: #e0f7ff; text-shadow: 0 0 20px rgba(100, 200, 255, 0.5);">Cosmic News & Space Exploration</h2>
+            <p>Stay updated with the latest space missions, astronomical discoveries, and cosmic breakthroughs that are shaping humanity's future among the stars.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="news">
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Missions</button>
+            <button class="filter-btn">Discoveries</button>
+            <button class="filter-btn">Technology</button>
+            <button class="filter-btn">Astronomy</button>
+        </div>
+
+        <!-- News Grid -->
+        <section class="news-grid">
+            <article class="news-card">
+                <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=500&h=300&fit=crop'); background-size: cover; background-position: center;"></div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Missions</span>
+                    <h3>Europa Clipper Mission Launch</h3>
+                    <p class="news-card-date">April 14, 2026</p>
+                    <p class="news-card-excerpt">NASA's Europa Clipper spacecraft successfully launches to investigate Jupiter's moon Europa for signs of extraterrestrial life beneath its icy surface.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=500&h=300&fit=crop'); background-size: cover; background-position: center;"></div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Discoveries</span>
+                    <h3>Water Vapor Detected on Venus</h3>
+                    <p class="news-card-date">April 13, 2026</p>
+                    <p class="news-card-excerpt">Groundbreaking discovery reveals significant water vapor in Venus' atmosphere, challenging our understanding of the planet's climate history.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=500&h=300&fit=crop'); background-size: cover; background-position: center;"></div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Technology</span>
+                    <h3>AI-Powered Telescope Network</h3>
+                    <p class="news-card-date">April 12, 2026</p>
+                    <p class="news-card-excerpt">Revolutionary AI system coordinates global telescope networks, enabling real-time tracking of near-Earth objects and space debris.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop'); background-size: cover; background-position: center;"></div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Astronomy</span>
+                    <h3>Fast Radio Burst Origin Identified</h3>
+                    <p class="news-card-date">April 11, 2026</p>
+                    <p class="news-card-excerpt">Scientists pinpoint the source of mysterious fast radio bursts to magnetars, solving one of astronomy's greatest cosmic puzzles.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Trending Sidebar -->
+        <aside class="sidebar" id="categories">
+            <h3>� Trending Now</h3>
+            <div class="sidebar-item"><a href="#">Artemis III Lunar Landing Delayed</a></div>
+            <div class="sidebar-item"><a href="#">Black Hole Merger Detected</a></div>
+            <div class="sidebar-item"><a href="#">Mars Sample Return Mission Update</a></div>
+            <div class="sidebar-item"><a href="#">Space Tourism Milestones</a></div>
+            <div class="sidebar-item"><a href="#">Asteroid Mining Breakthrough</a></div>
+        </aside>
+    </main>
+
+  
+    
+   
+
+    <script>
+        // Smooth filter button interactions
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>🚀 Explore</h4>
+            <ul>
+                <li><a href="lec.html">Home</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>📚 Resources</h4>
+            <ul>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Documentation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>🌐 Connect</h4>
+            <ul>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Email</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>⚖️ Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio. All Rights Reserved.</p>
+        <p>Designed & Built with ✨ | Cosmic Theme v1.0</p>
+    </div>
+</footer>
+
+</body>
+</html>

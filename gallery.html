@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beautiful space exploration gallery featuring cosmic images, planets, nebulas, and astronomical phenomena.">
+    <meta name="keywords" content="space, gallery, cosmos, planets, universe, astronomy, nebula">
+    <title>Space Gallery - Explore the Universe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a2540 0%, #1a4d7a 25%, #2d5a8c 50%, #6b3fa0 75%, #a5246b 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-bottom: 40px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(100, 200, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(200, 50, 150, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(150, 100, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 100, 200, 0.35) 0%, transparent 50%);
+            background-size: 700px 700px, 900px 900px, 800px 800px, 750px 750px;
+            opacity: 1;
+            pointer-events: none;
+            animation: glow 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.9;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .topnav {
+            background: linear-gradient(90deg, rgba(10, 37, 64, 0.95) 0%, rgba(45, 90, 140, 0.95) 100%);
+            box-shadow: 0 4px 30px rgba(100, 200, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand {
+            color: #64c8ff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 0 40px rgba(100, 200, 255, 0.5);
+            animation: glow-pulse 2s ease-in-out infinite;
+            padding: 1rem 0;
+        }
+
+        .nav-brand:hover {
+            text-shadow: 0 0 30px rgba(100, 200, 255, 1), 0 0 60px rgba(100, 200, 255, 0.7), 0 0 20px rgba(165, 51, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 0 40px rgba(100, 200, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(100, 200, 255, 1), 0 0 50px rgba(100, 200, 255, 0.7);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .topnav a {
+            color: #c5e3ff;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .topnav a:hover {
+            background-color: rgba(100, 200, 255, 0.2);
+            border-bottom-color: #64c8ff;
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .topnav a.active {
+            background-color: rgba(100, 200, 255, 0.3);
+            color: #64c8ff;
+            border-bottom-color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .nav-links a {
+            padding: 16px 16px;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(100, 200, 255, 0.2);
+            border-bottom-color: #64c8ff;
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .nav-links a.active {
+            background-color: rgba(100, 200, 255, 0.3);
+            color: #64c8ff;
+            border-bottom-color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #e0f7ff;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(100, 200, 255, 0.5), 0 0 30px rgba(200, 100, 255, 0.3);
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #c5e3ff;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(100, 200, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 50px rgba(100, 200, 255, 0.3), 0 0 40px rgba(160, 100, 255, 0.2);
+            border: 2px solid rgba(100, 200, 255, 0.3);
+            background: linear-gradient(135deg, rgba(20, 45, 80, 0.5) 0%, rgba(40, 60, 100, 0.5) 100%);
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(100, 200, 255, 0.6), 0 0 60px rgba(165, 51, 255, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-info {
+            position: relative;
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.8) 0%, rgba(20, 45, 80, 0.95) 100%);
+            padding: 20px;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .image-info {
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.95) 0%, rgba(20, 45, 120, 0.98) 100%);
+        }
+
+        .image-info h3 {
+            color: #64c8ff;
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .image-info p {
+            color: #c5e3ff;
+            font-size: 14px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .image-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #2d90ff 0%, #a533ff 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(45, 144, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .topnav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .topnav a {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 20px 10px;
+            }
+
+            .gallery-item {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+
+            .image-info h3 {
+                font-size: 18px;
+            }
+
+            .image-info p {
+                font-size: 13px;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(90deg, rgba(10, 37, 64, 0.95) 0%, rgba(45, 90, 140, 0.95) 100%);
+            border-top: 2px solid rgba(100, 200, 255, 0.3);
+            padding: 50px 20px 20px;
+            margin-top: 80px;
+            color: #c5e3ff;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .footer-section h4 {
+            color: #64c8ff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #c5e3ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #64c8ff;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(196, 227, 255, 0.7);
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 20px 15px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="home.html" class="nav-brand">PORTFOLIO</a>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="News.html">News</a>
+    <a href="Contact.html">Contact</a>
+    <a href="gallery.html" class="active">Gallery</a>
+  </div>
+</div>
+
+<div class="header">
+    <h1>Space <span style="color: #64c8ff;">Gallery</span></h1>
+    <p>Explore the breathtaking beauty of the universe - from distant galaxies to vibrant nebulas and celestial phenomena</p>
+</div>
+
+<div class="container">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=600&h=400&fit=crop" alt="Starry Universe">
+            <div class="image-info">
+                <h3>Cosmic Wonders</h3>
+                <p>A mesmerizing view of billions of stars scattered across the vast universe, creating an endless tapestry of light.</p>
+                <span class="image-category">Universe</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600&h=400&fit=crop" alt="Nebula">
+            <div class="image-info">
+                <h3>Nebula</h3>
+                <p>A stunning emission nebula where new stars are being born, glowing with vibrant colors of ionized gases.</p>
+                <span class="image-category">Nebula</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOv8WDa_sGW9UN8cD4jfWFzzgkkxBMJ5ITOQ&s" alt="Galaxy">
+            <div class="image-info">
+                <h3>Spiral Galaxy</h3>
+                <p>A magnificent spiral galaxy spanning millions of light-years, home to billions of stars and cosmic mysteries.</p>
+                <span class="image-category">Galaxy</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop" alt="Saturn">
+            <div class="image-info">
+                <h3>Saturn's Rings</h3>
+                <p>The majestic ringed planet Saturn, a jewel of our solar system, captured in all its glory and splendor.</p>
+                <span class="image-category">Planets</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYpxXflLvq4IIdCu8oUllqXqZy16di5su8Dg&s" alt="Moon Surface">
+            <div class="image-info">
+                <h3>Lunar Surface</h3>
+                <p>The cratered surface of the Moon, our closest celestial neighbor, showing millions of years of cosmic impacts.</p>
+                <span class="image-category">Moon</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPl8Z9Y-bZQzHZn8io8YL-b5xieOqCFgEkgQ&s" alt="Aurora">
+            <div class="image-info">
+                <h3>Northern Aurora</h3>
+                <p>The magical Aurora Borealis dancing across the night sky, created by the interaction of solar wind and Earth's atmosphere.</p>
+                <span class="image-category">Phenomena</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=600&h=400&fit=crop" alt="Earth from Space">
+            <div class="image-info">
+                <h3>Planet Earth</h3>
+                <p>Our beautiful blue planet suspended in the cosmic void, a precious oasis of life in the vast universe.</p>
+                <span class="image-category">Earth</span>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=600&h=400&fit=crop" alt="Milky Way">
+            <div class="image-info">
+                <h3>Milky Way</h3>
+                <p>Our own galaxy stretching across the night sky, a river of stars that is home to billions of solar systems.</p>
+                <span class="image-category">Galaxy</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  // Add intersection observer for lazy loading animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.gallery-item').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>🚀 Explore</h4>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>📚 Resources</h4>
+            <ul>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Documentation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>🌐 Connect</h4>
+            <ul>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Email</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>⚖️ Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio. All Rights Reserved.</p>
+        <p>Designed & Built with ✨ | Cosmic Theme v1.0</p>
+    </div>
+</footer>
+
+</body>
+</html>
